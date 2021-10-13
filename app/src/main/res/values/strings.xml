@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">MathCalc</string>
+    <string name="txtPlus">+</string>
+    <string name="txtMinus">-</string>
+    <string name="txtEquals">=</string>
+    <string name="txtDivision">/</string>
+    <string name="txtBackspace"></string>
+    <string name="txtClear">C</string>
+    <string name="txtFlip">+/-</string>
+    <string name="txtDecimal">.</string>
+    <string name="txtMultiply">*</string>
+    <string name="txtDisplay"></string>
+    <string name="txtRollingDisplay"></string>
+    <string name="txt0">0</string>
+    <string name="txt1">1</string>
+    <string name="txt2">2</string>
+    <string name="txt3">3</string>
+    <string name="txt4">4</string>
+    <string name="txt5">5</string>
+    <string name="txt6">6</string>
+    <string name="txt7">7</string>
+    <string name="txt8">8</string>
+    <string name="txt9">9</string>
+</resources>
