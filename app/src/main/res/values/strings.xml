@@ -9,6 +9,7 @@
     <string name="txtFlip">+/-</string>
     <string name="txtDecimal">.</string>
     <string name="txtMultiply">*</string>
+    <string name="blank">" "</string>
     <string name="txtDisplay"></string>
     <string name="txtRollingDisplay"></string>
     <string name="txt0">0</string>
