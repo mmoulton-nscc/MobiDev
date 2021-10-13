@@ -52,16 +52,16 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <TextView
-                android:id="@+id/textBackspace"
+            <Button
+                android:id="@+id/btnBackspace"
                 android:layout_width="102dp"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="@string/txtBackspace"
                 android:textSize="34sp" />
 
-            <TextView
-                android:id="@+id/textClear"
+            <Button
+                android:id="@+id/btnClear"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
@@ -74,10 +74,11 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text=" "
-                android:textSize="34sp" />
+                android:textSize="34sp"
+                android:visibility="invisible" />
 
-            <TextView
-                android:id="@+id/textDivision"
+            <Button
+                android:id="@+id/btnDivision"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
@@ -90,32 +91,32 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <TextView
-                android:id="@+id/textSeven"
+            <Button
+                android:id="@+id/btnSeven"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="@string/txt7"
                 android:textSize="34sp" />
 
-            <TextView
-                android:id="@+id/textEight"
+            <Button
+                android:id="@+id/btnEight"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="@string/txt8"
                 android:textSize="34sp" />
 
-            <TextView
-                android:id="@+id/textNine"
+            <Button
+                android:id="@+id/btntNine"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="@string/txt9"
                 android:textSize="34sp" />
 
-            <TextView
-                android:id="@+id/textMultiply"
+            <Button
+                android:id="@+id/btnMultiply"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
@@ -128,32 +129,32 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <TextView
-                android:id="@+id/textFour"
+            <Button
+                android:id="@+id/btnFour"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="@string/txt4"
                 android:textSize="34sp" />
 
-            <TextView
-                android:id="@+id/textFive"
+            <Button
+                android:id="@+id/btnFive"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="@string/txt5"
                 android:textSize="34sp" />
 
-            <TextView
-                android:id="@+id/textSix"
+            <Button
+                android:id="@+id/btnSix"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="@string/txt6"
                 android:textSize="34sp" />
 
-            <TextView
-                android:id="@+id/textMinus"
+            <Button
+                android:id="@+id/btnMinus"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
@@ -166,32 +167,32 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <TextView
-                android:id="@+id/textOne"
+            <Button
+                android:id="@+id/btnOne"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="@string/txt1"
                 android:textSize="34sp" />
 
-            <TextView
-                android:id="@+id/textTwo"
+            <Button
+                android:id="@+id/btnTwo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="@string/txt2"
                 android:textSize="34sp" />
 
-            <TextView
-                android:id="@+id/textThree"
+            <Button
+                android:id="@+id/btnThree"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="@string/txt3"
                 android:textSize="34sp" />
 
-            <TextView
-                android:id="@+id/textPlus"
+            <Button
+                android:id="@+id/btnPlus"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
@@ -204,32 +205,32 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <TextView
-                android:id="@+id/textFlip"
+            <Button
+                android:id="@+id/btnFlip"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="@string/txtFlip"
                 android:textSize="34sp" />
 
-            <TextView
-                android:id="@+id/textZero"
+            <Button
+                android:id="@+id/btnZero"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="@string/txt0"
                 android:textSize="34sp" />
 
-            <TextView
-                android:id="@+id/textDecimal"
+            <Button
+                android:id="@+id/btnDecimal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="@string/txtDecimal"
                 android:textSize="34sp" />
 
-            <TextView
-                android:id="@+id/textEquals"
+            <Button
+                android:id="@+id/btnEquals"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
