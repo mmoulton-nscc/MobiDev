@@ -298,10 +298,14 @@ public class MainActivity extends AppCompatActivity
         if (swap && opStarted)
         {
             str = secondNum;
+            if(str.equals("0") || str.equals("0."))
+            {
+                return;
+            }
             if(!str.equals(""))
             {
                 newstr.append(str.charAt(0)); //test first char to see if it's a negative
-                if(!newstr.equals("-"))//if its not negative
+                if(!newstr.toString().equals("-"))//if its not negative
                 {
                     newstr.deleteCharAt(0);
                     newstr.append("-");//turn it negative and start the loop
@@ -327,10 +331,14 @@ public class MainActivity extends AppCompatActivity
         else
         {
             str = firstNum;
+            if(str.equals("0") || str.equals("0."))
+            {
+                return;
+            }
             if(!str.equals(""))
             {
                 newstr.append(str.charAt(0)); //test first char to see if it's a negative
-                if(!newstr.equals("-"))//if its not negative
+                if(!newstr.toString().equals("-"))//if its not negative
                 {
                     newstr.deleteCharAt(0);
                     newstr.append("-");//turn it negative and start the loop
