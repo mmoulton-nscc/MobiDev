@@ -206,24 +206,35 @@ public class MainActivity extends AppCompatActivity
         }
     };
     
-    public void decidePlacement(String n) //on number button, decide whether it will be placed in the first or second number
+    public void decidePlacement(String n) //decide whether string will be placed in the first or second number
     {
         if (swap && opStarted)
         {
-            secondNum = appendToString(secondNum, n);
-            if (secondNum.equals("."))
-            {
-                secondNum = "0.";
-            }
+            secondNum = createPlacement(n,secondNum);
         }
         else
         {
-            firstNum = appendToString(firstNum, n);
-            if (firstNum.equals("."))
-            {
-                firstNum = "0.";
-            }
+            firstNum = createPlacement(n, firstNum);
         }
+    }
+
+    public String createPlacement(String n, String num)
+    {
+        if (num.equals("0")) //if there's just a zero replace it
+        {
+            num = n; //for example displays 15 instead of 015
+        }
+        else
+        {
+            num = appendToString(num, n);
+        }
+
+        if (num.equals("."))
+        {
+            num = "0.";
+        }
+
+        return num;
     }
 
     public void resolveOperator(String o)
@@ -262,105 +273,87 @@ public class MainActivity extends AppCompatActivity
 
     public void resolveBackspace()
     {
-        String str;
-        StringBuilder newstr = new StringBuilder();
         if (swap && opStarted)
         {
-            str = secondNum;
-            if(!str.equals(""))
-            {
-                for (int i = 0; i < str.length() - 1; i++)
-                {
-                    newstr.append(str.charAt(i));
-                }
-                secondNum = newstr.toString();
-            }
+            secondNum = createBackspaceString(secondNum);
         }
         else
         {
-            str = firstNum;
-            if(!str.equals(""))
-            {
-                for (int i = 0; i < str.length() - 1; i++)
-                {
-                    newstr.append(str.charAt(i));
-                }
-                firstNum = newstr.toString();
-
-            }
+            firstNum = createBackspaceString(firstNum);
         }
+    }
+
+    public String createBackspaceString(String n)
+    {
+        String str;
+        StringBuilder newstr = new StringBuilder();
+
+        str = n;
+        if(!str.equals("")) //if string isn't empty append all but last number to new string
+        {
+            for (int i = 0; i < str.length() - 1; i++)
+            {
+                newstr.append(str.charAt(i));
+            }
+            n = newstr.toString();
+        }
+        if (n.equals("-"))//if all that remains is -, remove it to avoid crashes
+        {
+            n = "";
+        }
+
+        return n;
     }
 
     public void resolveFlip()
     {
-        String str;
-        StringBuilder newstr = new StringBuilder();
+
         if (swap && opStarted)
         {
-            str = secondNum;
-            if(str.equals("0") || str.equals("0."))
-            {
-                return;
-            }
-            if(!str.equals(""))
-            {
-                newstr.append(str.charAt(0)); //test first char to see if it's a negative
-                if(!newstr.toString().equals("-"))//if its not negative
-                {
-                    newstr.deleteCharAt(0);
-                    newstr.append("-");//turn it negative and start the loop
-                    for (int i = 0; i < str.length(); i++)
-                    {
-                        newstr.append(str.charAt(i));
-                    }
-                    secondNum = newstr.toString();
-                }
-                else//if it is negative
-                {
-                    newstr.deleteCharAt(0);
-                    //delete char0 and start loop at 1
-                    for (int i = 1; i < str.length(); i++)
-                    {
-                        newstr.append(str.charAt(i));
-                    }
-                    secondNum = newstr.toString();
-                }
-
-            }
+            secondNum = createFlipString(secondNum);
         }
         else
         {
-            str = firstNum;
-            if(str.equals("0") || str.equals("0."))
-            {
-                return;
-            }
-            if(!str.equals(""))
-            {
-                newstr.append(str.charAt(0)); //test first char to see if it's a negative
-                if(!newstr.toString().equals("-"))//if its not negative
-                {
-                    newstr.deleteCharAt(0);
-                    newstr.append("-");//turn it negative and start the loop
-                    for (int i = 0; i < str.length(); i++)
-                    {
-                        newstr.append(str.charAt(i));
-                    }
-                    firstNum = newstr.toString();
-
-                }
-                else//if it is negative
-                {
-                    newstr.deleteCharAt(0);
-                    //delete char0 and start loop at 1
-                    for (int i = 1; i < str.length(); i++)
-                    {
-                        newstr.append(str.charAt(i));
-                    }
-                    firstNum = newstr.toString();
-                }
-            }
+            firstNum = createFlipString(firstNum);
         }
+    }
+
+    public String createFlipString(String n)
+    {
+        String str;
+        StringBuilder newstr = new StringBuilder();
+
+        str = n;
+        if(str.equals("0") || str.equals("0."))
+        {
+            return str;
+        }
+        if(!str.equals(""))
+        {
+            newstr.append(str.charAt(0)); //test first char to see if it's a negative
+            if(!newstr.toString().equals("-"))//if its not negative
+            {
+                newstr.deleteCharAt(0);
+                newstr.append("-");//turn it negative and start the loop
+                for (int i = 0; i < str.length(); i++)
+                {
+                    newstr.append(str.charAt(i));
+                }
+                n = newstr.toString();
+            }
+            else//if it is negative
+            {
+                newstr.deleteCharAt(0);
+                //delete char0 and start loop at 1
+                for (int i = 1; i < str.length(); i++)
+                {
+                    newstr.append(str.charAt(i));
+                }
+                n = newstr.toString();
+            }
+
+        }
+        return n;
     }
 
     public void resetStates()
