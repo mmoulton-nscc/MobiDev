@@ -16,6 +16,7 @@ public class MainActivity extends AppCompatActivity
     //text views
     private TextView textCurrentDisplay;
 
+    //buttons
     private Button btnOne;
     private Button btnTwo;
     private Button btnThree;
@@ -39,11 +40,12 @@ public class MainActivity extends AppCompatActivity
     private Button btnDecimal;
 
     //keeping track of things
-    private String firstNum = ""; //why I didn't use strings and convert then before the calc, I don't have an answer, but I'm too far invested in the way I'm doing it now - update: it was a pain but I changed things to work with strings lol
+    private String firstNum = "";
     private String op = "";
     private String secondNum = "" ;
     private boolean opStarted = false; //checks if an initial op has been pressed
     private boolean swap = false; //buttons will track first num and trigger swap when an op is pressed, when swap is active secondNum will begin being tracked
+    //swap will remain active after equations because the rolling calc number will be stored in firstNum
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -128,7 +130,7 @@ public class MainActivity extends AppCompatActivity
         public void onClick(View v)
         {
 
-            switch(v.getId())
+            switch(v.getId()) //switch case each button will do something different
             {
                 //numbers
                 case R.id.btnOne:
@@ -198,9 +200,11 @@ public class MainActivity extends AppCompatActivity
             //after specific button stuff is resolved, update displays
             updateDisplays();
 
+
             if (firstNum.equals("NaN"))
             {
-                resolveClear(); //resets completely BEFORE next input is input if there's a divide by 0 error
+                resolveClear();
+                //resets completely BEFORE next input is input if there's a divide by 0 error
                 //but AFTER update so the error properly displays
             }
         }
@@ -218,7 +222,7 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
-    public String createPlacement(String n, String num)
+    public String createPlacement(String n, String num) //takes existing string and appends whatever button was pushed to the end of it
     {
         if (num.equals("0")) //if there's just a zero replace it
         {
@@ -229,7 +233,7 @@ public class MainActivity extends AppCompatActivity
             num = appendToString(num, n);
         }
 
-        if (num.equals("."))
+        if (num.equals(".")) //if a lone decimal was placed, assume 0.
         {
             num = "0.";
         }
@@ -244,11 +248,11 @@ public class MainActivity extends AppCompatActivity
             firstNum = calc.calculate(Double.parseDouble(firstNum), op, Double.parseDouble(secondNum)); //resolve equation and store it in firstNum
             resetStates();
             op = o; //set op after resetting
-            opStarted = true; //set started after resetting
+            opStarted = true; //set op started after resetting
         }
         else if (!firstNum.equals(""))
         {
-            op = o; //only set if number has been entered
+            op = o; //only sets if number has been entered first
             opStarted = true;
             swap = true;
         }
@@ -256,7 +260,7 @@ public class MainActivity extends AppCompatActivity
 
     public void resolveEquals()
     {
-        if (swap && !op.equals("") && !secondNum.equals("")) //if in swap state and op/secondnum isn't empty resolve equation
+        if (swap && !op.equals("") && !secondNum.equals("")) //if in swap state and op/secondnum isn't empty, resolve equation
         {
             firstNum = calc.calculate(Double.parseDouble(firstNum), op, Double.parseDouble(secondNum)); //resolve equation and store it in firstNum
             resetStates();
@@ -271,7 +275,7 @@ public class MainActivity extends AppCompatActivity
         resetStates();
     }
 
-    public void resolveBackspace()
+    public void resolveBackspace() //decide whether first or second number is being backspaced
     {
         if (swap && opStarted)
         {
@@ -287,9 +291,9 @@ public class MainActivity extends AppCompatActivity
     {
         String str;
         StringBuilder newstr = new StringBuilder();
-
         str = n;
-        if(!str.equals("")) //if string isn't empty append all but last number to new string
+
+        if(!str.equals("")) //if string isn't empty append all but last digit to new string
         {
             for (int i = 0; i < str.length() - 1; i++)
             {
@@ -308,7 +312,7 @@ public class MainActivity extends AppCompatActivity
     public void resolveFlip()
     {
 
-        if (swap && opStarted)
+        if (swap && opStarted)//decide whether first or second number is being flipped
         {
             secondNum = createFlipString(secondNum);
         }
@@ -322,19 +326,20 @@ public class MainActivity extends AppCompatActivity
     {
         String str;
         StringBuilder newstr = new StringBuilder();
-
         str = n;
-        if(str.equals("0") || str.equals("0."))
+
+        if(str.equals("0") || str.equals("0.")) //don't flip 0
         {
             return str;
         }
+
         if(!str.equals(""))
         {
             newstr.append(str.charAt(0)); //test first char to see if it's a negative
             if(!newstr.toString().equals("-"))//if its not negative
             {
                 newstr.deleteCharAt(0);
-                newstr.append("-");//turn it negative and start the loop
+                newstr.append("-");//turn it negative and rebuild the string with every digit
                 for (int i = 0; i < str.length(); i++)
                 {
                     newstr.append(str.charAt(i));
@@ -344,7 +349,7 @@ public class MainActivity extends AppCompatActivity
             else//if it is negative
             {
                 newstr.deleteCharAt(0);
-                //delete char0 and start loop at 1
+                //delete char0 and start loop at 1 to skip -
                 for (int i = 1; i < str.length(); i++)
                 {
                     newstr.append(str.charAt(i));
@@ -358,7 +363,7 @@ public class MainActivity extends AppCompatActivity
 
     public void resetStates()
     {
-        //resets trackers with the exception of initial number and swap, used when equation is executed
+        //resets trackers with the exception of first number and swap, used when equation is executed
         op = ""; //reset op
         opStarted = false;
         secondNum = ""; //reset secondNum
@@ -380,7 +385,7 @@ public class MainActivity extends AppCompatActivity
     {
         String str;
         str = firstNum + " " +  op + " " + secondNum;
-        textCurrentDisplay.setText(str);
+        textCurrentDisplay.setText(str); //displays current rolling equation
     }
 
 }
