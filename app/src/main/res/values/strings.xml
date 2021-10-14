@@ -4,14 +4,13 @@
     <string name="txtMinus">-</string>
     <string name="txtEquals">=</string>
     <string name="txtDivision">/</string>
-    <string name="txtBackspace"></string>
+    <string name="txtBackspace">←</string>
     <string name="txtClear">C</string>
     <string name="txtFlip">+/-</string>
     <string name="txtDecimal">.</string>
     <string name="txtMultiply">*</string>
     <string name="blank">" "</string>
-    <string name="txtDisplay"></string>
-    <string name="txtRollingDisplay"></string>
+    <string name="txtDisplay">""</string>
     <string name="txt0">0</string>
     <string name="txt1">1</string>
     <string name="txt2">2</string>

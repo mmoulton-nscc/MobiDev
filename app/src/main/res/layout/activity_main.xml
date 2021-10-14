@@ -17,21 +17,6 @@
         tools:layout_editor_absoluteY="-97dp">
 
         <TableRow
-            android:id="@+id/display"
-            android:layout_width="match_parent"
-            android:layout_height="7dp">
-
-            <TextView
-                android:id="@+id/textDisplay"
-                android:layout_width="102dp"
-                android:layout_height="match_parent"
-                android:layout_span="4"
-                android:gravity="end"
-                android:text="@string/txtRollingDisplay"
-                android:textSize="24sp" />
-        </TableRow>
-
-        <TableRow
             android:id="@+id/row0"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
@@ -39,7 +24,7 @@
             <TextView
                 android:id="@+id/textCurrentDisplay"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="112dp"
                 android:layout_span="4"
                 android:gravity="end"
                 android:text="@string/txtDisplay"
@@ -113,7 +98,7 @@
                 android:textSize="34sp" />
 
             <Button
-                android:id="@+id/btntNine"
+                android:id="@+id/btnNine"
                 style="@style/Widget.AppCompat.Button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
