@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">MathCalc</string>
+    <string name="app_name">Assignment 1 Calculator</string>
     <string name="txtPlus">+</string>
     <string name="txtMinus">-</string>
     <string name="txtEquals">=</string>

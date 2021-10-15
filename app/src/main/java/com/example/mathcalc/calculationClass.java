@@ -7,7 +7,7 @@ public class calculationClass
     public String calculate (double leftNum, String op, double rightNum)
     {
         double calc = 0;
-        DecimalFormat format = new DecimalFormat("0.#"); //https://stackoverflow.com/questions/14204905/java-how-to-remove-trailing-zeros-from-a-double
+        DecimalFormat format = new DecimalFormat("0.#############"); //https://stackoverflow.com/questions/14204905/java-how-to-remove-trailing-zeros-from-a-double
         switch (op)
         {
             case "*":
